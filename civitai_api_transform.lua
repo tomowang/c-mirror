@@ -10,11 +10,11 @@ local next_idx = ctx.nbuffers + 1
 
 local scheme = ngx.var.scheme
 local host = ngx.var.host
-local port = ngx.var.server_port
+local port = ngx.var.server_port -- port is string
 local original_str = "https://civitai.com/api/download/models/(%d+)"
 local replacement
 
-if (scheme == 'http' and port == 80) or (scheme == 'https' and port == 443) then
+if (scheme == "http" and port == "80") or (scheme == "https" and port == "443") then
   replacement = string.format("%s://%s/api/download/models/%%1", scheme, host)
 else
   replacement = string.format("%s://%s:%d/api/download/models/%%1", scheme, host, port)
