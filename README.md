@@ -16,3 +16,11 @@ nginx -p `pwd` -s reload
 # test sample model API for original https://civitai.com/api/v1/models/43331
 curl http://localhost:8080/api/v1/models/43331
 ```
+
+Sample command to generate certificate by using certbot:
+
+```bash
+sudo certbot certonly \
+  --dns-cloudflare \
+  --dns-cloudflare-credentials /etc/certbot/cloudflare.ini \
+  -d c-mirror.com
